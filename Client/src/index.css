@@ -5,6 +5,12 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffbaba; /* Color de fondo de la página */
   }
   
   code {
@@ -16,7 +22,7 @@ body {
     display: block;
     margin: 0 auto; 
     padding: 10px;
-    font-size: 50px;
+    font-size: 30px;
     width: 100%;
   
   }
@@ -26,15 +32,53 @@ body {
     display: inline-block;
     margin: 10px auto;
     padding: 10px 20px; 
-    font-size: 50px; 
+    width: 200px;
+    background-color: green;
+    color: rgb(217, 217, 217);
+    font-size: 20px; 
+    margin-bottom: 50px;
   
   }
+
+  .container2 input {
+    display: run-in;
+    margin: 0 auto; 
+    padding: 10px;
+    font-size: 12px;
+  
+  }
+  
+  
+  .container2 button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px; 
+    width: auto;
+    height: auto;
+    background-color: green;
+    color: rgb(217, 217, 217);
+    font-size: 12px; 
+    margin-bottom: 10px;
+  
+  }
+
   
   .container{
     text-align: center;
+    position: relative;
   }
   
   .h1-1{
-    font-size: 100px;
-    margin-top: 50%;
+    font-size: 50px;
+    margin-top: 5%;
+  }
+
+  .box{
+    margin-top: 50px;
+    width: auto;
+    height: auto;
+    border: 1px solid rgb(131, 207, 255);
+    background-color: rgb(109, 199, 255);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px;
   }

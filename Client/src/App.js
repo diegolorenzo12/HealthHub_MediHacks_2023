@@ -5,11 +5,16 @@ import AuthDetails from './components/AuthDetails';
 
 function App() {
   return (
-    <div className="App">
-      <SignIn />
-      <SignUp />
-      <AuthDetails />
-    </div>
+ 
+      <div className="App">
+        <div className="box">
+          <SignIn />
+          <SignUp />
+          <AuthDetails />
+        </div>
+      </div>
+
+    
   );
 }
 

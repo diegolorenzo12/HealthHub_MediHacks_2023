@@ -13,14 +13,16 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        alert("Sign in Successful");
       })
       .catch((error) => {
         console.log(error);
+        alert("Email already in use");
       });
   };
 
   return (
-    <div className="sign-in-container">
+    <div className="sign-in-container" class="container2">
       <form onSubmit={signUp}>
         <h1>Create Account</h1>
         <input
@@ -29,7 +31,7 @@ const SignUp = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
-        <input
+        <input 
           type="password"
           placeholder="Enter your password"
           value={password}
