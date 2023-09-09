@@ -17,15 +17,7 @@ const firebaseConfig = {
   appId: process.env.firebaseappId,
 };
 */
-const firebaseConfig = {
-  apiKey: "AIzaSyBrjbIzv4YF03lL3CAPPLX4nurHpPiXV1o",
-  authDomain: "new2-7973e.firebaseapp.com",
-  databaseURL: "https://new2-7973e-default-rtdb.firebaseio.com",
-  projectId: "new2-7973e",
-  storageBucket: "new2-7973e.appspot.com",
-  messagingSenderId: "134424328616",
-  appId: "1:134424328616:web:7a9b003823cf04d3dcc59d"
-};
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
