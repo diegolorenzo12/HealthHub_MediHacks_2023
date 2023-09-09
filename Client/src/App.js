@@ -5,7 +5,7 @@ import AuthDetails from './components/AuthDetails';
 
 function App() {
   return (
- 
+    <body className="jalalv">
       <div className="App">
         <div className="box">
           <SignIn />
@@ -13,6 +13,8 @@ function App() {
           <AuthDetails />
         </div>
       </div>
+    </body>
+   
 
     
   );
