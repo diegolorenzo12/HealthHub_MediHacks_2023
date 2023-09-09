@@ -9,7 +9,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">HealthHub</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,16 +39,68 @@
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Username <span class="sr-only">(current)</span></a>
+                <li class="nav-item mx-1">
+                  <a id="userlink" class="nav-link" href="login.html">Log In </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Out <span class="sr-only">(current)</span></a>
+                <li class="nav-item mx-1">
+                    <a id="signoutlink" class="nav-link" href="">Account </a>
                   </li>
               </ul>
           </form>
         </div>
       </nav>
-    
+    <h3 id="hh"></h3>
+    <script>
+        let userlink = document.getElementById('userlink');
+        let signoutlink = document.getElementbyId('signoutlink');
+        let header = document.getElementbyId('hh');
+        var currentuser = null;
+
+        function getUser(){
+            let keepLoggedIn = localStorage.getItem("keepLoggedIn");
+
+            if(keepLoggedIn == "yes"){
+                currentuser = JSON.parse(localStorage.getItem('user'));
+            }
+            else{
+                currentuser = JSON.parse(sessionStorage.getItem('user'));
+            }
+        }
+
+        function signout(){
+            sessionStorage.removeItem('user');
+            localStorage.removeItem('user');
+            localStorage.removeItem('keepLoggedIn');
+            window.location = "home.html";
+        }
+
+        window.onload = function(){
+            getUsername();
+            if(currentUser == null){
+                userlink.innerText = "Create new Account";
+                userlink.classList.replace("nav-link","btn");
+                userlink.classList.add("btn-primary");
+                userlink.href = "register.html";
+
+                signoutlink.innerText = "Login";
+                signoutlink.classList.replace("nav-link", "btn");
+                signoutlink.classList.add("btn-success");
+                signoutlink.href = "login.html"
+            }
+
+            else{
+                userlink.innerText = currentuser.username;
+                header.innerText = "welcome " + currentuser.fullname;
+                userlink.classList.replace("btn", "nav-link");
+                userlink.classList.remove("btn-primary");
+                userlink.href = "#";
+
+                signoutlink.innerText = "Sign Out";
+                signoutlink.classList.replace("btn", "nav-link");
+                signoutlink.classList.remove("btn-success");
+                signoutlink.href = "javascript:Signout()"
+            }
+        }
+    </script>
 </body>
 </html>

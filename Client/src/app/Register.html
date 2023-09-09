@@ -15,7 +15,7 @@
         <input type="text" placeholder="Fullname" id="nameInp" class="form-control mb-3">
         <input type="text" placeholder="Email" id="emailInp" class="form-control mb-3">
         <input type="text" placeholder="Username" id="userInp" class="form-control mb-3">
-        <input type="text" placeholder="Password" id="psssInp" class="form-control mb-3">
+        <input type="password" placeholder="Password" id="passInp" class="form-control mb-3">
         <button type="text" id="sub_btn" class="btn btn-outline-primary mb-3 w-100">Sign Up</button>
         <a href="login.html" class="badge badge-secondary py-1 w-100">Already have an account?</a>
         <style>
@@ -32,22 +32,21 @@
     </div>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
         const firebaseConfig = {
-          apiKey: "AIzaSyAaXfm-1nDyNW-xwujsMoURxpqxD35IeQU",
-          authDomain: "signin-71f65.firebaseapp.com",
-          projectId: "signin-71f65",
-          storageBucket: "signin-71f65.appspot.com",
-          messagingSenderId: "285783889432",
-          appId: "1:285783889432:web:1de78452b86343aff3556d",
-          measurementId: "G-HPVGVNRRGR"
+          apiKey: "AIzaSyBrjbIzv4YF03lL3CAPPLX4nurHpPiXV1o",
+          authDomain: "new2-7973e.firebaseapp.com",
+          databaseURL: "https://new2-7973e-default-rtdb.firebaseio.com",
+          projectId: "new2-7973e",
+          storageBucket: "new2-7973e.appspot.com",
+          messagingSenderId: "134424328616",
+          appId: "1:134424328616:web:7a9b003823cf04d3dcc59d"
         };
       
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
 
-        import {getDatabase, ref, set, child}
+        import {getDatabase, ref, set, child, get}
             from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+
 
         const db = getDatabase();
 
@@ -59,20 +58,60 @@
         const submit = document.getElementById('sub_btn');
 
         function Validation(){
-            let nameregex = /[a-zA-Z]+/;
-            let email = /[a-zA-Z0-9]+@\.(gmail|yahoo|outlook)\.co/;
-            let userregex = /[a-zA-Z0-9]{5,}/;
+            let nameregex = /^[a-zA-Z\s]+$/;
+            let emailregex = /^[a-zA-Z0-9]+@(gmail|yahoo|outlook)\.com$/;
+            let userregex = /^[a-zA-Z0-9]{5,}$/;
 
             if(!nameregex.test(name.value)){
                 alert("The name should only contain alphabets");
+                return false;
             }
-            if(!email.test(name.value)){
+            if(!emailregex.test(email.value)){
                 alert("enter a valid email");
+                return false;
             }
-            if(!userregex.test(name.value)){
+            if(!userregex.test(username.value)){
                 alert("-username can only be alphanumeric\n-username must be at least 5 characters\n-username cannot contain spaces");
+                return false;
             }
+
+            return true;
         }
+
+        function RegisterUser(){
+            if (!Validation()){
+                return;
+            };
+            const dbRef = ref(db);
+            get(child(dbRef, "UsersList/"+ username.value)).then((snapshot)=>{
+                if(snapshot.exists()){
+                    alert( "Account Already Exists!");
+                }
+                else{
+                    set(ref(db, "UsersList/"+ username.value),
+                    {
+                        fullname: name.value,
+                        email: email.value,
+                        username: username.value,
+                        password: encPass()
+                    })
+                    .then(()=>{
+                        alert("user added succesfully");
+                    })
+                    .catch((error)=>{
+                        alert("error"+ error);
+                    })
+                }
+            });
+        }
+//---------------------------------Encription------------------------------------//
+        function encPass(){
+            var pass12 = CryptoJS.AES.encrypt(pass.value, pass.value);
+            return pass12.toString();
+        }
+//-----------------------------------Assign the events---------------------------------//
+
+        submit.addEventListener('click', RegisterUser);
 
 
       </script>
