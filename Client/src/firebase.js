@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 
 console.log(process.env.firebaseapiKey);
 
-/*
+
 const firebaseConfig = {
   apiKey: process.env.firebaseapiKey,
   authDomain: process.env.firebaseauthDomain,
@@ -16,7 +16,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.firebasemessagingSenderId,
   appId: process.env.firebaseappId,
 };
-*/
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
