@@ -4,6 +4,9 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration, replace it with your project keys
 
+console.log(process.env.firebaseapiKey);
+
+
 const firebaseConfig = {
   apiKey: process.env.firebaseapiKey,
   authDomain: process.env.firebaseauthDomain,
@@ -13,6 +16,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.firebasemessagingSenderId,
   appId: process.env.firebaseappId,
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
