@@ -1,15 +1,35 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css'; 
+import axios from 'axios';
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+  const signIn = async (e) => {
+    e.preventDefault();
+
+    const apiUrl = 'http://localhost:3001/loginClient';
+    const requestData = {
+      email,
+      password,
+    };
+
+    try { // Make the API call
+      const response = await axios.post(apiUrl, requestData);
+      console.log('API response:', response.data);
+    } catch (error) {
+      console.error('API error:', error);
+    }
+  };
+
+
   return (
     <div className="containerSingIn">
     <div className="Sign">
       <div className="sign-in-container" class="container">
-          <form className="formSingIn">
+          <form className="formSingIn" onSubmit={signIn} >
             <h1 className="h1-1">Log In</h1>
             <input className="SignIn"
               type="email"

@@ -25,7 +25,6 @@
   width: fit-content;
 }
 
-  
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
@@ -40,9 +39,7 @@
     padding: 10px;
     font-size: 30px;
     width: 90%;
-
   }
-  
   
   .container button {
     display: run-in;
@@ -56,8 +53,6 @@
   
   }
 
-
-  
   .container{
     text-align: center;
     position: relative;

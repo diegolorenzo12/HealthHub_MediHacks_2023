@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css'; 
-
+import axios from 'axios';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -8,15 +8,30 @@ const SignUp = () => {
   const [Name, setName] = useState("");
   const [BirthDate, setBirthDate] = useState("");
 
-  const signUp = (e) => {
+  const signUp = async (e) => {
     e.preventDefault();
+
+    const apiUrl = 'http://localhost:3001/registerClient';
+    const requestData = {
+      email,
+      password,
+      name: Name,
+      birth: BirthDate,
+    };
+
+    try { // Make the API call
+      const response = await axios.post(apiUrl, requestData);
+      console.log('API response:', response.data);
+    } catch (error) {
+      console.error('API error:', error);
+    }
   };
 
   return (
     <div className="containerSingIn">
       <div className="Sign">
         <div className="sign-in-container" class="container">
-          <form className="formSingIn" onSubmit={signUp}>
+          <form className="formSingIn" onSubmit={signUp}  >
             <h1 className="h1-1">Create Account</h1>
             <input
               type="Name"

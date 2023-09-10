@@ -1,11 +1,12 @@
 const express = require("express");
 const mysql = require("mysql2");
+const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const util = require("./util");
 const queries = require("./queries");
 const app = express();
-const port = 3000;
+const port = 3001;
 
 const pool = mysql.createPool({
   host: "localhost", // Replace with your MySQL host
@@ -31,6 +32,7 @@ const jwtSecretKey =
 
 app.use(express.json()); // For JSON data
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json("{Hello World!}");
@@ -60,7 +62,10 @@ app.post("/registerClient", async (req, res) => {
 });
 
 app.post("/loginClient", async (req, res) => {
-  const { email, password } = req.body;
+  console.log(req.body);
+
+  let password = req.body.password;
+  let email = req.body.email;
 
   // Check if the user exists in the database
   pool.query(
