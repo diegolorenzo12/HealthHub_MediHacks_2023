@@ -56,6 +56,7 @@ const SignUp = () => {
         ></input>
         <button type="submit">Sign Up</button>
       </form>
+      <a href="/signIn"><button type="submit">Already have an account</button></a>
     </div>
   );
 };
