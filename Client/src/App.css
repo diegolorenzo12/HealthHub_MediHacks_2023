@@ -1,38 +1,51 @@
-.App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(105, 218, 255);
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+.hero-image {
+  background: url(https://images.unsplash.com/photo-1664902270856-e6774c9df737?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80)no-repeat center;;
+  height: 550px;
+  position: relative;
+ 
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: white;
+}
+.welcome{
+  font-size:50px
+}
+#button{
+  border-radius: 15px;
+  background-color:rgba(116, 159, 224, 1) ;
+  color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 80px;
+  width: 200px;
+  font-size: 1.8rem;
+  margin-top: 50px;
+  border-color: white;
+}
+#home-text{
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+#bullets{
+  font-size: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#info{
+  font-size: 1.5rem;
+  font-family:Arial, Helvetica, sans-serif;
+}
+#text{
+  margin: 0 15px;
+
+ 
+}
