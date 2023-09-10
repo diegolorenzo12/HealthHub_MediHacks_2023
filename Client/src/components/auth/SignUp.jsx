@@ -7,6 +7,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [Name, setName] = useState("");
+  const [BirthDate, setBirthDate] = useState("");
+
+
 
   const signUp = (e) => {
     e.preventDefault();
@@ -22,14 +26,27 @@ const SignUp = () => {
   };
 
   return (
+
     <div className="sign-in-container" class="container2">
       <form onSubmit={signUp}>
         <h1>Create Account</h1>
+        <input
+          type="Name"
+          placeholder="Full Name"
+          value={Name}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
         <input
           type="email"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        ></input>
+        <input
+          type="BirthDate"
+          placeholder="Enter your Birth Date"
+          value={BirthDate}
+          onChange={(e) => setBirthDate(e.target.value)}
         ></input>
         <input 
           type="password"

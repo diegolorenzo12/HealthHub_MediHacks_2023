@@ -28,14 +28,13 @@ body {
   
   
   .container button {
-    display: inline-block;
+    display: run-in;
     margin: 10px auto;
     padding: 10px 20px; 
-    width: 200px;
-    background-color: green;
-    color: rgb(217, 217, 217);
+    width: 100%;
+    background-color: rgb(99, 171, 132);
+    color: rgb(0, 0, 0);
     font-size: 20px; 
-    margin-bottom: 50px;
   
   }
 
@@ -81,3 +80,5 @@ body {
     border-radius: 15px;
     box-shadow: 0 5px 15px;
   }
+
+

@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../../firebase";
 import 'bootstrap/dist/css/bootstrap.css'; 
+import { Link } from 'react-router';
 
 
 const SignIn = () => {
@@ -39,7 +40,9 @@ const SignIn = () => {
           ></input>
           <button className="SignIn" type="submit">Log In</button>
         </form>
+        <button className="Register" type="submit">Register</button>
     </div>
+    
   );
 };
 
