@@ -1,16 +1,17 @@
 
-body {
-    background-color: #f30909; /* Color de fondo de la página */
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
+/*
+.Sign {
+    position: relative;
+    top: 50px;
     align-items: center;
-    display: flex;
+    width: 50%;
+    height: auto;
+    border: 1px solid rgb(131, 207, 255);
+    background-color: rgb(109, 199, 255);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px;
   }
-  
+  */
   
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -18,12 +19,14 @@ body {
   }
   
   .container input {
-    display: block;
-    margin: 0 auto; 
+    display: run-in;
+    margin-bottom: 20px auto; 
+    margin-left: 6px;
+    margin-right: 5px;
+    margin-bottom: 10px;
     padding: 10px;
     font-size: 30px;
-    width: 100%;
-  
+    width: 50%;
   }
   
   
@@ -31,34 +34,13 @@ body {
     display: run-in;
     margin: 10px auto;
     padding: 10px 20px; 
-    width: 100%;
-    background-color: rgb(99, 171, 132);
+    width: 50%;
+    background-color: rgb(176, 225, 247);
     color: rgb(0, 0, 0);
     font-size: 20px; 
   
   }
 
-  .container2 input {
-    display: block;
-    margin: 0 auto; 
-    padding: 10px;
-    font-size: 30px;
-    width: 100%
-  
-  }
-  
-  
-  .container2 button {
-    display: run-in;
-    margin-bottom: 10px;
-    margin: 10px auto;
-    padding: 10px 20px; 
-    width: 100%;
-    background-color: rgb(99, 171, 132);
-    color: rgb(0, 0, 0);
-    font-size: 20px; 
-  
-  }
 
   
   .container{
@@ -71,13 +53,12 @@ body {
     margin-top: 5%;
   }
 
-  .box{
-    width: auto;
-    height: auto;
-    border: 1px solid rgb(131, 207, 255);
-    background-color: rgb(109, 199, 255);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px;
+
+
+  input{
+    border-radius: 150px;
+    border: 1px solid #ccc;
+    padding: 10px;
   }
 
 
