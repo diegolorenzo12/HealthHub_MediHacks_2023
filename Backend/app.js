@@ -27,7 +27,7 @@ pool.getConnection((err, connection) => {
 });
 
 const jwtSecretKey =
-  "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY5NDMwMzcyNCwiaWF0IjoxNjk0MzAzNzI0fQ._8QqEMApVETXuznNE5zgTXu";
+  "eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY5NDMwMzcyNCwiaWF0IjoxNjk0MzAzNzI0fQ_8QqEMApVETXuznNE5zgTXu";
 
 app.use(express.json()); // For JSON data
 app.use(express.urlencoded({ extended: true }));
@@ -80,7 +80,7 @@ app.post("/loginClient", async (req, res) => {
         if (passwordMatch) {
           // Generate a JSON Web Token (JWT)
           const token = jwt.sign(
-            { userId: user.idclients, isClient: true },
+            { userId: user.idclients, isClient: true, name: user.name },
             jwtSecretKey
           );
 
@@ -118,11 +118,13 @@ app.post("/registerDoctor", async (req, res) => {
 });
 
 app.post("/loginDoctor", async (req, res) => {
-  const { email, password } = req.body;
-
+  const password = req.body.password;
+  const email = req.body.email;
+  console.log(password);
+  console.log(email);
   // Check if the user exists in the database
   pool.query(
-    "SELECT * FROM doctors WHERE email = ?",
+    "SELECT * FROM doctors WHERE Email = ?",
     [email],
     async (error, results) => {
       if (error) {
@@ -133,12 +135,13 @@ app.post("/loginDoctor", async (req, res) => {
       } else {
         // Compare the provided password with the hashed password from the database
         const user = results[0];
-        const passwordMatch = await bcrypt.compare(password, user.password);
+        console.log(user);
+        const passwordMatch = await bcrypt.compare(password, user.Password);
 
         if (passwordMatch) {
           // Generate a JSON Web Token (JWT)
           const token = jwt.sign(
-            { userId: user.idclients, isClient: false },
+            { userId: user.idDoctors, isClient: false, name: user.Name },
             jwtSecretKey
           );
 
@@ -151,36 +154,72 @@ app.post("/loginDoctor", async (req, res) => {
   );
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
-
 app.get("/make_apointment", (req, res) => {
   let idDoctor = req.body.idDoctor;
   let Datetieme = req.body.Datetieme;
   let Timespan = req.body.Timespan;
   const token = req.headers.authorization;
 
-  if (verifyToken(token) !== null) {
+  if (util.verifyToken(token, jwtSecretKey) !== null) {
+    //console.log(queries.checkForOverlap(idDoctor, Datetieme, Timespan, pool));
+    queries.checkForOverlap(
+      idDoctor,
+      Datetieme,
+      Timespan,
+      pool,
+      (err, results) => {
+        if (err) {
+          res.json({ message: "faild" });
+        } else {
+          const idClient = util.getUserIdByToken(token, jwtSecretKey);
+          queries.makeApointment(idDoctor, idClient, Datetieme, Timespan, pool);
+          res.json({ message: "successful" });
+        }
+      }
+    );
+    /*
     if (queries.checkForOverlap(idDoctor, Datetieme, Timespan, pool)) {
-      const idClient = getUserIdByToken(token);
+      const idClient = util.getUserIdByToken(token, jwtSecretKey);
       queries.makeApointment(idDoctor, idClient, Datetieme, Timespan, pool);
       res.json({ message: "successful" });
+    } else {
+      res.json({ message: "faild" });
     }
-    res.json({ message: "faild" });
+    */
   }
 });
 
-/*
+app.get("/prueba", (req, res) => {
+  const token = req.headers.authorization;
+  //console.log(token);
+
+  const decodedToken = jwt.verify(token, jwtSecretKey);
+  console.log(decodedToken);
+
+  res.json("{Hello World!}");
+});
+
 app.get("/getMedicalRecord", (req, res) => {
   res.json("{Hello World!}");
 });
 
-app.get("/setMedicalRecord", (req, res) => {
-  res.json("{Hello World!}");
+/*
+  
+  app.get("/setMedicalRecord", (req, res) => {
+    res.json("{Hello World!}");
+  });
+  
+  app.get("/getOcupiedApointments", (req, res) => {
+    res.json("{Hello World!}");
+  });
+  */
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
 
-app.get("/getOcupiedApointments", (req, res) => {
-  res.json("{Hello World!}");
-});
-*/
+//jwt de doctor
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQ2xpZW50Ijp0cnVlLCJuYW1lIjoiRGllZ28iLCJpYXQiOjE2OTQzMjUzMTB9.9YhIx3aCUzLpUsyCRa9W4hEm9H2Nw8Tt9Az3B3ILjrw
+
+//jwt de paciente
+//

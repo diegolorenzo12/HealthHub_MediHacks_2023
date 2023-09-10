@@ -1,23 +1,14 @@
-function convertToMySQLDatetime(dateString) {
-  // Create a JavaScript Date object from the input date string
-  const inputDate = new Date(dateString);
+const jwt = require("jsonwebtoken");
 
-  // Check if the inputDate is a valid date
-  if (isNaN(inputDate.getTime())) {
-    console.error("Invalid date input");
-    return null; // Return null for invalid input
-  }
+function convertToMySQLDatetime(input) {
+  // Split the input into date and time parts
+  const [datePart, timePart] = input.split("T");
 
-  // Get individual date components
-  const year = inputDate.getFullYear();
-  const month = String(inputDate.getMonth() + 1).padStart(2, "0"); // Month is zero-based
-  const day = String(inputDate.getDate()).padStart(2, "0");
-  const hours = "00";
-  const minutes = "00";
-  const seconds = "00";
+  // Split the time part into hours and minutes
+  const [hours, minutes] = timePart.split(":");
 
-  // Create the MySQL datetime string
-  const mysqlDatetime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  // Create a new date object in the desired format
+  const mysqlDatetime = `${datePart} ${hours}:${minutes}:00`;
 
   return mysqlDatetime;
 }
