@@ -1,0 +1,56 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(116, 159, 224, 1);
+    padding: 20px 80px;
+    box-shadow: 0 5px 15px ;
+}   
+#navbar{
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+#navbar li a{
+text-decoration: none;
+font-size: 1.3rem;
+font-weight: 600;
+color: white;
+transition: 0.3s ease-in-out;
+
+}
+#navbar li a:hover,
+#navbar li a.active{
+    color:rgb(24, 68, 134)
+}
+#navbar li a:hover::after,
+#navbar li a.active::after{
+    content: "";
+    width: 30%;
+    height: 4px;
+    background:rgb(24, 68, 134);
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+#h1{
+    flex-grow: 4;
+   color: white;
+   font-size: 2.5rem;
+   font-family: Arial, Helvetica, sans-serif;
+
+}
+#home{
+    font-size: 1.5rem;
+
+}
+#calendar{
+font-size: 1.5rem;
+}

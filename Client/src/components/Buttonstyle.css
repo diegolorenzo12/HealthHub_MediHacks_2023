@@ -1,0 +1,22 @@
+button{
+    color: white;
+    background-color:green;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px lightgray;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+
+  
+  .button button {
+    background-color: green; 
+    color: white; 
+    
+  }
+  
+  
+  
