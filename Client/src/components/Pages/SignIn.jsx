@@ -19,11 +19,13 @@ const SignIn = () => {
     try { // Make the API call
       const response = await axios.post(apiUrl, requestData);
       console.log('API response:', response.data);
+      if(response.data.message === "Login successful"){ 
+        localStorage.setItem('token', response.data.token);
+      }
     } catch (error) {
       console.error('API error:', error);
     }
   };
-
 
   return (
     <div className="containerSingIn">
