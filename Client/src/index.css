@@ -19,10 +19,12 @@ body {
   
   .container input {
     display: block;
-    margin: 0 auto; 
+    margin-bottom: 20px; 
+    margin-left: 5px;
+    margin-right: 5px;
     padding: 10px;
     font-size: 30px;
-    width: 100%;
+    width: 97%
   
   }
   
@@ -32,7 +34,7 @@ body {
     margin: 10px auto;
     padding: 10px 20px; 
     width: 100%;
-    background-color: rgb(99, 171, 132);
+    background-color: rgb(176, 225, 247);
     color: rgb(0, 0, 0);
     font-size: 20px; 
   
@@ -40,21 +42,22 @@ body {
 
   .container2 input {
     display: block;
-    margin: 0 auto; 
+    margin-bottom: 20px; 
+    margin-left: 6px;
+    margin-right: 5px;
     padding: 10px;
     font-size: 30px;
-    width: 100%
+    width: 95%
   
   }
   
   
   .container2 button {
     display: run-in;
-    margin-bottom: 10px;
     margin: 10px auto;
     padding: 10px 20px; 
-    width: 100%;
-    background-color: rgb(99, 171, 132);
+    width: 95%;
+    background-color: rgb(176, 225, 247);
     color: rgb(0, 0, 0);
     font-size: 20px; 
   
@@ -73,11 +76,18 @@ body {
 
   .box{
     width: auto;
+    margin-top: 50px;
     height: auto;
     border: 1px solid rgb(131, 207, 255);
     background-color: rgb(109, 199, 255);
     border-radius: 15px;
     box-shadow: 0 5px 15px;
+  }
+
+  input{
+    border-radius: 150px;
+    border: 1px solid #ccc;
+    padding: 10px;
   }
 
 
