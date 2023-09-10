@@ -4,9 +4,10 @@ import SignUp from './components/auth/SignUp';
 import AuthDetails from './components/AuthDetails';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Calendar from './components/Pages/Calendar'
-import Account from './components/Pages/Account'
+import Login from './components/Pages/Login';
 import Home from './components/Pages/Home';
 import Navbar from './Navbar';
+
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/calendar' element={<Calendar />}/>
-            <Route path='/account' element={<Account />}/>
+            <Route path='/Login' element={<Login />}/>
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/signUp" element={<SignUp />} />        
           </Routes>
