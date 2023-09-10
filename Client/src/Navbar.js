@@ -29,7 +29,7 @@ export default function Navbar(){
                     
                 </ul>
             </div>
-            <Link id="foto"to="Account">
+            <Link id="foto"to="/Account">
             <svg xmlns="http://www.w3.org/2000/svg"
              width="48" 
              height="48"

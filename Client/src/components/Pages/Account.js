@@ -1,9 +1,10 @@
 
-import  '../App.css'
+import  '../../App.css';
+import SignIn from '../auth/SignIn';
 export default function Account() {
   return (
     <div>
-      <h1>ACCOUUUNNTTNTTTNTNNTN</h1>
+      <SignIn />
     </div>
     )
   }

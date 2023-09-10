@@ -23,6 +23,7 @@ const SignIn = () => {
   };
 
   return (
+    <div className="Sign">
     <div className="sign-in-container" class="container">
         <form onSubmit={signIn}>
           <h1 className="h1-1">Log In</h1>
@@ -41,6 +42,7 @@ const SignIn = () => {
           <button className="SignIn" type="submit">Log In</button>
         </form>
         <a href="/SignUp"><button className="Register" type="submit">Register</button></a>
+    </div>
     </div>
     
   );

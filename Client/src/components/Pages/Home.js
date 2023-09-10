@@ -1,14 +1,14 @@
   //import '..Components/Boardstyle.css'
   import Board from '../Board';
-  import  '../App.css'
-  import '../Components/Buttonstyle.css';
+  import  '../../App.css'
+  import '../../components/Boardstyle.css';
   function clickMe(){
     alert ('you clicked me');
   }
   export default function Home() {
     return (
-      <div className="container">
-        <div className="board-container">
+      <>
+      <div className="board-container">
           <Board />
         </div>
         <div className='button'>
@@ -19,6 +19,7 @@
           </button>
           </div>
         </div>
-      </div>
+      </>
+       
       )
   }

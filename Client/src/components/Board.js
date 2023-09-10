@@ -1,6 +1,6 @@
 import List from './List'
 import React from 'react'
-import '../Components/Boardstyle.css'
+import './Boardstyle.css'
 export default function Board() {
   return (
     <div className="pag">

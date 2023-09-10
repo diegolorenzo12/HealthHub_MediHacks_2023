@@ -26,10 +26,10 @@ const SignUp = () => {
   };
 
   return (
-
-    <div className="sign-in-container" class="container2">
+    <div className="Sign">
+    <div className="sign-in-container" class="containers">
       <form onSubmit={signUp}>
-        <h1>Create Account</h1>
+        <h1 className="h1-1">Create Account</h1>
         <input
           type="Name"
           placeholder="Full Name"
@@ -57,6 +57,7 @@ const SignUp = () => {
         <button type="submit">Sign Up</button>
       </form>
       <a href="/signIn"><button type="submit">Already have an account</button></a>
+    </div>
     </div>
   );
 };
