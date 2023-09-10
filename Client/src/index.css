@@ -1,17 +1,30 @@
 
-/*
+
+.containerSingIn{
+  display: flex;
+  justify-content: center;
+  height: 60vh;
+  margin: 7%;
+}
+
 .Sign {
     position: relative;
-    top: 50px;
     align-items: center;
-    width: 50%;
     height: auto;
-    border: 1px solid rgb(131, 207, 255);
-    background-color: rgb(109, 199, 255);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2%;
+    box-shadow: 1px 3px 5px 0;
   }
-  */
+
+.formSingIn{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: fit-content;
+}
+
   
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -26,16 +39,18 @@
     margin-bottom: 10px;
     padding: 10px;
     font-size: 30px;
-    width: 50%;
+    width: 90%;
+
   }
   
   
   .container button {
     display: run-in;
-    margin: 10px auto;
     padding: 10px 20px; 
-    width: 50%;
-    background-color: rgb(176, 225, 247);
+     width: 90%;
+    border: none;
+    border-radius: 66px;
+    background-color: #4487EB;
     color: rgb(0, 0, 0);
     font-size: 20px; 
   
@@ -46,17 +61,22 @@
   .container{
     text-align: center;
     position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    flex-direction: column;
   }
   
   .h1-1{
     font-size: 50px;
+    font-weight: lighter;
     margin-top: 5%;
+    width: fit-content;
+    margin: 0;
   }
 
-
-
   input{
-    border-radius: 150px;
     border: 1px solid #ccc;
     padding: 10px;
   }
